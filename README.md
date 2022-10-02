@@ -1,1 +1,1 @@
-# Calendar program written in Python designed for virtual machines.
+Calendar program written in Python designed for virtual machines.
