@@ -1,0 +1,19 @@
+#!/sbin/openrc-run
+
+start() {
+	#natigates to the daemon's folder and executes it in the background
+	cd /home/gwan
+	python3 daemon.py &
+
+	#gives permission to all users to read write and execute the calendar and the database
+	chmod -R 777 ./
+
+	echo Daemon Started
+}
+
+stop(){
+	#filtering out the pid of the daemon and killing it
+	kill `ps | grep daemon.py | grep -v grep | awk '{print $1}'`
+
+	echo Daemon Killed
+}
